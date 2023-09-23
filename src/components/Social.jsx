@@ -13,7 +13,7 @@ const Social = () => {
                     LinkedIn <FaLinkedin size={30} /> 
                 </>
             ),
-            href: 'https://www.linkedin.com/',
+            href: 'https://www.linkedin.com/in/muhammad-iqbaal-hibatullah/',
             style: 'rounded-tr-md'
         },
         {
