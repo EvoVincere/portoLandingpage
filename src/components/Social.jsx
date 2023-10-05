@@ -43,7 +43,7 @@ const Social = () => {
                     Resume <BsFillPersonLinesFill size={30} /> 
                 </>
             ),
-            href: '/Muhammad Iqbaal Hibatullah-CV.pdf',
+            href: '/Muhammad Iqbaal Hibatullah-resume.pdf',
             style: 'rounded-br-md',
             download:true,
         },
