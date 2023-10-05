@@ -12,16 +12,10 @@ const About = () => {
                 </p>
             </div>
             <p className='text-xl mt-20'>
-                Lorem ipsum dolor sit amet consectetur 
-                adipisicing elit. Tenetur quas nemo aperiam at! 
-                Deserunt similique aliquid doloribus eum sint repellat 
-                fugiat reiciendis. Asperiores saepe quis dolor enim omnis iure nam?
-            </p>
-            
-            <p className='text-xl mt-4'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                Quibusdam nostrum ipsa expedita maiores consequatur explicabo adipisci aperiam repellendus, 
-                voluptas corrupti libero ut fugiat blanditiis placeat quidem tempore pariatur, iusto odio.
+            I am a fresh graduate of S1 Computer Engineering from Telkom University Bandung with a GPA of 3.31. During my 4 years of college, 
+            I actively participated in various events in student organizations and one of them was the logistics coordinator at the Telkom Esport Championship event in 2021. 
+            I was also a practicum assistant for network security in the 2022-2023 period. I am also an alumni of the MSIB coding Batch 3 program Front End React Developer program in 2022. 
+            Currently, I am very interested in gaining experience in the field of web development, especially the react framework.
             </p>
         </div>
     </div>
