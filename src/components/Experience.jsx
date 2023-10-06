@@ -58,14 +58,14 @@ const Experience = () => {
             id:7,
             src: typescript,
             title: 'Typescript',
-            style: 'shadow-sky-400',
+            style: 'shadow-blue-400',
             href: 'https://www.typescriptlang.org/docs/',
         },
         {
             id:8,
             src: nextjs,
             title: 'NextJS',
-            style: 'shadow-sky-400',
+            style: 'shadow-gray-400',
             href: 'https://nextjs.org/docs',
         },
        
