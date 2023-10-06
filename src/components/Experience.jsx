@@ -5,7 +5,8 @@ import javascript from "../assets/javascript.png"
 import react from "../assets/react.png"
 import tailwind from "../assets/tailwind.png"
 import github from "../assets/github.png"
-
+import typescript from "../assets/typescript.png"
+import nextjs from "../assets/nextjs.png"
 
 
 const Experience = () => {
@@ -53,6 +54,20 @@ const Experience = () => {
             style: 'shadow-sky-400',
             href: 'https://v2.tailwindcss.com/docs',
         },
+        {
+            id:7,
+            src: typescript,
+            title: 'Typescript',
+            style: 'shadow-sky-400',
+            href: 'https://www.typescriptlang.org/docs/',
+        },
+        {
+            id:8,
+            src: nextjs,
+            title: 'NextJS',
+            style: 'shadow-sky-400',
+            href: 'https://nextjs.org/docs',
+        },
        
     ]
 
@@ -69,7 +84,7 @@ const Experience = () => {
             <div className='w-full grid grid-cols-2 sm:grid-cols-3 gap-8 text-center py-8 px-12 sm:px-0'>
                 {
                     tech.map(({id,src,title,style,href}) => (
-                        <div key={id} className={`shadow-md hover:scale-105 duration-500 py-2 rounded-lg ${style}`}>
+                        <div key={id} className={`shadow-md cursor-pointer hover:scale-105 duration-500 py-2 rounded-lg ${style}`}>
                             <img src={src} alt="" className='w-20 mx-auto'/>
                             <p className='mt-4'>{title}</p>
                         </div>
