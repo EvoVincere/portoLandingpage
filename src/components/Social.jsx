@@ -33,7 +33,7 @@ const Social = () => {
                     Email <HiOutlineMail size={30} /> 
                 </>
             ),
-            href: 'mailto:foo@gmail.com',
+            href: 'mailto:iqbaal12345@gmail.com',
             
         },
         {
@@ -43,7 +43,7 @@ const Social = () => {
                     Resume <BsFillPersonLinesFill size={30} /> 
                 </>
             ),
-            href: '/Muhammad Iqbaal Hibatullah-resume.pdf',
+            href: '/Muhammad Iqbaal Hibatullah resume 2026.pdf',
             style: 'rounded-br-md',
             download:true,
         },
