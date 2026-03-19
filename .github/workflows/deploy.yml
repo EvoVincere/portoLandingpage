@@ -22,5 +22,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           source: "build/*"
-          target: "/var/www/portfolio"
+          target: "/var/www/cloudporto"
           strip_components: 1
