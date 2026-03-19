@@ -13,6 +13,30 @@ Proyek ini adalah implementasi nyata dari alur kerja **DevOps** dan **Cloud Comp
 
 ---
 
+## 🖥️ Infrastructure & Server Configuration
+
+Aplikasi ini di-host pada infrastruktur Cloud yang dikonfigurasi secara mandiri untuk menjamin kontrol penuh atas keamanan dan performa.
+
+### **Server Specifications (DigitalOcean Droplet)**
+* **Provider:** DigitalOcean
+* **Region:** Singapore (SGP1) - *Optimized for low latency in SE Asia*
+* **Operating System:** Ubuntu 22.04 LTS (Jammy Jellyfish)
+* **Web Server:** Nginx v1.18+
+* **Resources:** 1 vCPU / 1 GB RAM / 25 GB NVMe SSD (Standard Droplet)
+
+### **Server Environment Setup**
+Untuk mendukung deployment yang stabil, server telah dikonfigurasi dengan langkah-langkah berikut:
+1.  **Deployment Directory:** Aplikasi terletak di `/var/www/cloudporto`.
+2.  **Nginx Configuration:** Menggunakan *server block* khusus untuk menangani routing SPA (Single Page Application) guna mencegah error 404 pada *client-side routing*.
+3.  **Process Management:** Server dikonfigurasi untuk menjalankan Nginx secara otomatis sebagai *systemd service*.
+
+### **Network & Security Details**
+* **Static IP:** `165.22.244.5`
+* **SSH Port:** 22 (Akses dibatasi hanya via SSH Key).
+* **Web Ports:** Port 80 (HTTP) terbuka untuk publik.
+* **Monitoring Port:** Port 19999 (Netdata) terbuka untuk pemantauan performa real-time.
+* **Firewall:** Menggunakan `UFW` (Uncomplicated Firewall) dengan kebijakan *deny all* kecuali untuk port yang diizinkan secara eksplisit.
+
 ## 🛠️ Tech Stack & Infrastructure
 
 ### **Frontend**
