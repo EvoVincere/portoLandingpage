@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# 🚀 Cloud Full-Stack Deployment: Portfolio Landing Page
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Deployment Status](https://github.com/EvoVincere/portoLandingpage/actions/workflows/deploy.yml/badge.svg)](https://github.com/EvoVincere/portoLandingpage/actions)
 
-## Available Scripts
+Proyek ini adalah implementasi nyata dari alur kerja **DevOps** dan **Cloud Computing**. Fokus utama dari proyek ini bukan hanya pada tampilan frontend, melainkan pada bagaimana aplikasi dikelola, diotomatisasi, dan dipantau di lingkungan produksi (Cloud).
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🔗 Live Links
+* **Web Application:** [http://165.22.244.5/](http://165.22.244.5/)
+* **Monitoring Dashboard (Netdata):** [http://165.22.244.5:19999/](http://165.22.244.5:19999/)
+* **CI/CD Pipeline Status:** [GitHub Actions Tab](https://github.com/EvoVincere/portoLandingpage/actions)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🛠️ Tech Stack & Infrastructure
 
-### `npm test`
+### **Frontend**
+* **React.js:** Digunakan untuk membangun antarmuka portfolio yang responsif dan performan.
+* **Nginx:** Bertindak sebagai *Web Server* dan *Reverse Proxy* untuk melayani file statis hasil build.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### **Cloud & DevOps**
+* **DigitalOcean (Droplet):** Infrastruktur VPS berbasis Ubuntu Server.
+* **GitHub Actions:** Automasi **CI/CD** untuk proses *Build* dan *Deploy* otomatis.
+* **Netdata:** Tool monitoring *real-time* untuk memantau performa server (CPU, RAM, Network).
+* **UFW (Uncomplicated Firewall):** Mengatur kebijakan akses keamanan port pada server.
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🔄 CI/CD Workflow
+Proyek ini menggunakan pipeline otomatis untuk memastikan setiap perubahan kode di-deploy dengan aman tanpa intervensi manual:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1.  **Trigger:** Developer melakukan `push` kode ke branch `main`.
+2.  **Build Stage:** GitHub Actions menjalankan `npm install` dan `npm run build` untuk menghasilkan folder produksi.
+3.  **Deploy Stage:** Hasil build dikirim ke DigitalOcean Droplet menggunakan protokol **SSH/SCP** secara otomatis.
+4.  **Verification:** Pipeline akan memberikan status sukses (hijau) jika file berhasil diperbarui di folder `/var/www/cloudporto`.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🔒 Security Measures
+Keamanan adalah prioritas dalam deployment ini:
+* **Credential Management:** Seluruh data sensitif (IP Server, Username, SSH Private Key) dikelola melalui **GitHub Secrets**. Tidak ada kredensial yang tertulis langsung (*hardcoded*) di dalam source code.
+* **SSH Key Authentication:** Akses ke server dibatasi hanya menggunakan *SSH Key-based authentication*.
+* **Firewall Configuration:** Hanya port yang diperlukan (80 untuk HTTP, 19999 untuk Netdata, dan 22 untuk SSH) yang dibuka pada firewall server.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📈 Monitoring & Scaling
+* **Monitoring:** Performa sistem dapat dipantau secara langsung melalui dashboard **Netdata**. Log akses dan error juga dicatat secara berkala di `/var/log/nginx/`.
+* **Scaling Strategy:** Proyek ini mendukung **Vertical Scaling**. Jika trafik meningkat, spesifikasi Droplet (CPU/RAM) dapat ditingkatkan secara manual melalui panel kontrol DigitalOcean tanpa perlu konfigurasi ulang infrastruktur.
+<img width="1918" height="973" alt="image" src="https://github.com/user-attachments/assets/95743323-0691-46a4-acf0-445324bf5a90" />
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 📄 Documentation Checklist (Capstone Project)
+- [x] **CI/CD:** Pipeline otomatis (Build & Deploy) berjalan sukses.
+- [x] **Deployment:** Berhasil di-deploy ke layanan Cloud (DigitalOcean VPS).
+- [x] **Monitoring:** Dashboard Netdata aktif dan berfungsi.
+- [x] **Security:** Secrets tidak hardcoded dan menggunakan SSH Key.
+- [x] **Documentation:** File README lengkap dengan detail infrastruktur.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+**Developed by [Iqbaal Hibatullah](https://github.com/EvoVincere)**
