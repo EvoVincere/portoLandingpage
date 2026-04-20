@@ -1,75 +1,43 @@
 import React from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
-import {HiOutlineMail} from 'react-icons/hi'
-import {BsFillPersonLinesFill} from 'react-icons/bs'
+import { HiOutlineMail } from 'react-icons/hi'
+
 
 const Social = () => {
 
-    const links =[
-        {
-            id: 1,
-            child: (
-                <>
-                    LinkedIn <FaLinkedin size={30} /> 
-                </>
-            ),
-            href: 'https://www.linkedin.com/in/muhammad-iqbaal-hibatullah/',
-            style: 'rounded-tr-md'
-        },
-        {
-            id: 2,
-            child: (
-                <>
-                    Github <FaGithub size={30} /> 
-                </>
-            ),
-            href: 'https://github.com/EvoVincere',
-            
-        },
-        {
-            id: 3,
-            child: (
-                <>
-                    Email <HiOutlineMail size={30} /> 
-                </>
-            ),
-            href: 'mailto:iqbaal12345@gmail.com',
-            
-        },
-        {
-            id: 4,
-            child: (
-                <>
-                    Resume <BsFillPersonLinesFill size={30} /> 
-                </>
-            ),
-            href: '/Muhammad Iqbaal Hibatullah resume 2026.pdf',
-            style: 'rounded-br-md',
-            download:true,
-        },
-    ]
+  const links = [
+    {
+      id: 1,
+      icon: <FaGithub size={25} />,
+      href: 'https://github.com/EvoVincere',
+    },
+    {
+      id: 2,
+      icon: <FaLinkedin size={25} />,
+      href: 'https://www.linkedin.com/in/muhammad-iqbaal-hibatullah/',
+    },
+    {
+      id: 3,
+      icon: <HiOutlineMail size={25} />,
+      href: 'mailto:iqbaal12345@gmail.com',
+    },
+    
+  ]
 
   return (
-    <div className='hidden lg:flex flex-col top-[35%] left-0 fixed '>
-        <ul>
-            {links.map(({id, child, href, style, download}) => (
-                <li key={id} 
-                className={"flex justify-between items-center w-40 h-14 px-4 ml-[-100px] hover:ml-[-10px] hover:rounded-md duration-300 bg-gray-700 " 
-                + " " + style
-                } 
-                >
-                    <a href={href} 
-                    className='flex justify-between items-center w-full text-white' 
-                    download={download}
-                    target='_blank'
-                    rel="noreferrer"
-                    >
-                        {child}
-                    </a>
-                </li>
-            ))}
-
-        </ul>
+    <div className="flex gap-5 mt-4 text-white">
+      {links.map(({ id, icon, href, download }) => (
+        <a
+          key={id}
+          href={href}
+          target="_blank"
+          rel="noreferrer"
+          download={download}
+          className="hover:scale-110 transition duration-200"
+        >
+          {icon}
+        </a>
+      ))}
     </div>
   )
 }

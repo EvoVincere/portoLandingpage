@@ -2,23 +2,50 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div name="about" className='w-full h-screen 
-    bg-gradient-to-b from-gray-800 to-black text-white'>
-        <div className='max-w-screen-lg p-4 
-        mx-auto flex flex-col justify-center w-full h-full'>
-            <div className='pb-8'>
-                <p className='text-4xl font-bold inline border-b-4 border-gray-500'>
-                    About
-                </p>
-            </div>
-            <p className='text-xl mt-20'>
-            I am a fresh graduate of S1 Computer Engineering from Telkom University Bandung with a GPA of 3.31. During my 4 years of college, 
-            I actively participated in various events in student organizations and one of them was the logistics coordinator at the Telkom Esport Championship event in 2021. 
-            I was also a practicum assistant for network security in the 2022-2023 period. I am also an alumni of the MSIB Dicoding Batch 3 program Front End React Developer program in 2022. 
-            Currently, I am very interested in gaining experience in the field of web development, especially the react framework.
-            </p>
+    <section
+      name="about"
+      className="w-full bg-gradient-to-b from-gray-800 to-black text-white py-24"
+    >
+      <div className="max-w-4xl mx-auto px-4">
+
+        {/* HEADER */}
+        <div className="mb-12 text-center">
+          <p className="text-sm uppercase tracking-widest text-cyan-400">
+            About Me
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">
+            Cloud & DevOps Enthusiast
+          </h2>
         </div>
-    </div>
+
+        {/* CONTENT */}
+        <div className="space-y-6 text-gray-300 leading-relaxed text-base md:text-lg">
+
+          <p>
+            I am an IT Support professional with 2+ years of experience, currently transitioning into a Cloud / DevOps Engineer role. 
+            I have hands-on experience building and deploying applications on AWS using Infrastructure as Code, containerization, 
+            and CI/CD practices.
+          </p>
+
+          <p>
+            Through my projects, I have worked with tools such as Terraform, Docker, GitHub Actions, and Nginx to create scalable 
+            and automated deployment workflows. I also implemented monitoring solutions using Prometheus and Grafana to improve 
+            system observability.
+          </p>
+
+          <p>
+            I am comfortable working in Linux environments and have a strong interest in cloud infrastructure, automation, 
+            and system reliability. Currently, I am continuously improving my skills in cloud engineering and DevOps practices 
+            by building real-world projects.
+          </p>
+          <p className="text-cyan-400 font-medium">
+            Currently seeking opportunities as a Cloud / DevOps Engineer.
+        </p>
+
+        </div>
+
+      </div>
+    </section>
   )
 }
 

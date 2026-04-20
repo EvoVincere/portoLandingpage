@@ -1,98 +1,83 @@
 import React from 'react'
-import html from "../assets/html.png"
-import css from "../assets/css.png"
-import javascript from "../assets/javascript.png"
-import react from "../assets/react.png"
-import tailwind from "../assets/tailwind.png"
-import github from "../assets/github.png"
-import typescript from "../assets/typescript.png"
-import nextjs from "../assets/nextjs.png"
-
 
 const Experience = () => {
 
-    const tech = [
-        {
-            id:1,
-            src: html,
-            title: 'HTML',
-            style: 'shadow-orange-500',
-            href: 'https://developer.mozilla.org/en-US/docs/Web/HTML',
-        },
-        {
-            id:2,
-            src: css,
-            title: 'CSS',
-            style: 'shadow-blue-500',
-            href: 'https://devdocs.io/css/',
-        },
-        {
-            id:3,
-            src: javascript,
-            title: 'Javascript',
-            style: 'shadow-yellow-500',
-            href: 'https://devdocs.io/javascript/',
-        },
-        {
-            id:4,
-            src: react,
-            title: 'React',
-            style: 'shadow-blue-600',
-            href: 'https://react.dev/',
-        },
-        {
-            id:5,
-            src: github,
-            title: 'Github',
-            style: 'shadow-gray-400',
-            href: 'https://docs.github.com/',
-        },
-        {
-            id:6,
-            src: tailwind,
-            title: 'Tailwind',
-            style: 'shadow-sky-400',
-            href: 'https://v2.tailwindcss.com/docs',
-        },
-        {
-            id:7,
-            src: typescript,
-            title: 'Typescript',
-            style: 'shadow-blue-400',
-            href: 'https://www.typescriptlang.org/docs/',
-        },
-        {
-            id:8,
-            src: nextjs,
-            title: 'NextJS',
-            style: 'shadow-gray-400',
-            href: 'https://nextjs.org/docs',
-        },
-       
-    ]
+  const categories = [
+    {
+      title: "Cloud & Infrastructure",
+      items: ["AWS EC2", "Terraform"]
+    },
+    {
+      title: "Containerization",
+      items: ["Docker"]
+    },
+    {
+      title: "CI/CD",
+      items: ["GitHub Actions"]
+    },
+    {
+      title: "Monitoring",
+      items: ["Prometheus", "Grafana"]
+    },
+    {
+      title: "Web Server & Networking",
+      items: ["Nginx", "Cloudflare", "Basic Networking"]
+    },
+    {
+      title: "Operating System",
+      items: ["Linux (Ubuntu)"]
+    }
+  ]
 
   return (
-    <div name='experience' className='bg-gradient-to-b
-    from-gray-950 to-gray-800 w-full text-white md:h-screen'>
-        <div className='max-w-screen-lg mx-auto p-4 
-        flex flex-col justify-center w-full h-full text-white'>
-            <div>
-                <p className='text-4xl font-bold border-b-4
-                border-gray-500 p-2 inline'>Experience</p>
-                <p className='py-6'>These are the technologies i've worked with</p>
-            </div>
-            <div className='w-full grid grid-cols-2 sm:grid-cols-3 gap-8 text-center py-8 px-12 sm:px-0'>
-                {
-                    tech.map(({id,src,title,style,href}) => (
-                        <div key={id} className={`shadow-md cursor-pointer hover:scale-105 duration-500 py-2 rounded-lg ${style}`}>
-                            <img src={src} alt="" className='w-20 mx-auto'/>
-                            <p className='mt-4'>{title}</p>
-                        </div>
-                    ))
-                }
-            </div>
+    <section
+      name="experience"
+      className="w-full bg-gradient-to-b from-gray-950 to-gray-800 text-white py-24"
+    >
+      <div className="max-w-4xl mx-auto px-4">
+
+        {/* HEADER */}
+        <div className="mb-12 text-center">
+          <p className="text-sm uppercase tracking-widest text-cyan-400">
+            Skills
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">
+            Cloud & DevOps Stack
+          </h2>
+          <p className="text-gray-400 mt-4">
+            Technologies and tools I use to build, deploy, and monitor cloud applications.
+          </p>
         </div>
-    </div>
+
+        {/* GRID */}
+        <div className="grid sm:grid-cols-2 gap-8">
+
+          {categories.map((category, index) => (
+            <div
+              key={index}
+              className="bg-gray-900 p-6 rounded-xl shadow-md hover:shadow-xl transition duration-300"
+            >
+              <h3 className="text-lg font-semibold text-cyan-400 mb-4">
+                {category.title}
+              </h3>
+
+              <div className="flex flex-wrap gap-2">
+                {category.items.map((item, i) => (
+                  <span
+                    key={i}
+                    className="bg-gray-800 text-sm px-3 py-1 rounded-full text-gray-300"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+
+            </div>
+          ))}
+
+        </div>
+      </div>
+    </section>
   )
 }
 

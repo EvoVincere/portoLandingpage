@@ -1,58 +1,137 @@
 import React from 'react'
-import threadapp from '../assets/threadsapp.png'
-import tukerin from '../assets/tukerin.png'
-import carhub from '../assets/carhub.png' 
+
 const Portfolio = () => {
-  const portfolios = [
-    {
-      id: 1,
-      name: "Thread app",
-      src: threadapp,
-      href:'https://threadsapp-xi.vercel.app/',
-      code: 'https://github.com/EvoVincere/threadsapp',
-    },
-    {
-      id: 2,
-      name: "Tukerin",
-      src: tukerin,
-      href:'https://tukerinapp.netlify.app/',
-      code: 'https://github.com/EvoVincere/Tukerin'
-    },
-    {
-      id: 3,
-      name: "CarHub",
-      src: carhub,
-      href:'https://porto-ke-1.vercel.app/',
-      code: 'https://github.com/EvoVincere/porto'
-    }
-    
+  const stack = [
+    "AWS EC2",
+    "Terraform",
+    "Docker",
+    "Nginx",
+    "GitHub Actions",
+    "Prometheus",
+    "Grafana",
+    "Cloudflare"
   ]
+
   return (
-    <div name="portfolio" className='bg-gradient-to-b
-     from-black to-gray-950 w-full text-white md:h-screen'>
-        <div className='max-w-screen-lg p-4 mx-auto flex flex-col justify-center w-full h-full'>
-            <div className='pb-8'>
-                <p className='text-4xl font-bold inline border-b-4 border-gray-500'>Portfolio</p>
-                <p className='py-6'>Check out some of my work right here</p>
-            </div>
-            
-              <div className='grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0'>
-                {
-                portfolios.map(({id, src, name, href, code}) => (
-                  <div key={id} className='shadow-md shadow-gray-600 rounded-lg duration-500 hover:scale-105'>
-                    <p className='text-light w-1/2 px-6 py-3'>{name}</p>
-                  <img src={src} alt='threadapp' className='rounded-md'/>
-                  <div className='flex items-center justify-center'>
-                    <a href={href} className='w-1/2 px-6 py-3 m-4 duration-500 hover:scale-110'>Demo</a>
-                    <a href={code} className='w-1/2 px-6 py-3 m-4 duration-500 hover:scale-110'>Code</a>
-                  </div>
-                </div>
-                ))
-            }
-                
-              </div>
+    <section
+      name="portfolio"
+      className="w-full bg-gradient-to-b from-black to-gray-950 text-white py-24"
+    >
+      <div className="max-w-5xl mx-auto px-4">
+
+        {/* HEADER */}
+        <div className="mb-14 text-center">
+          <p className="text-sm uppercase tracking-widest text-cyan-400">
+            Portfolio
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold mt-2">
+            Featured Project
+          </h2>
+          <p className="text-gray-400 mt-4 max-w-xl mx-auto">
+            End-to-end cloud deployment with Infrastructure as Code, CI/CD automation, and monitoring.
+          </p>
         </div>
-    </div>
+
+        {/* CARD */}
+        <div className="bg-gray-900 rounded-2xl p-8 md:p-10 shadow-lg hover:shadow-2xl hover:-translate-y-1 transition duration-300">
+
+          {/* TITLE + GITHUB */}
+          <div className="flex justify-between items-start flex-col sm:flex-row gap-4">
+            <h3 className="text-2xl md:text-3xl font-semibold leading-snug">
+              Cloud Application Deployment on AWS
+            </h3>
+
+            <a
+              href="https://github.com/EvoVincere"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-gray-400 hover:text-cyan-400 transition"
+            >
+              View Source →
+            </a>
+          </div>
+
+          {/* OVERVIEW */}
+          <p className="text-gray-400 mt-5 leading-relaxed max-w-3xl">
+            Built and deployed a production-like cloud application on AWS using Infrastructure as Code,
+            containerization, and automated CI/CD pipeline. This project simulates a real-world DevOps workflow
+            from provisioning to monitoring.
+          </p>
+
+          {/* STACK */}
+          <div className="flex flex-wrap gap-2 mt-6 ">
+            {stack.map((tech, index) => (
+              <span
+                key={index}
+                className="bg-cyan-700/80 text-sm px-3 py-1 rounded-full tabular-nums tracking-wide "
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* GRID CONTENT */}
+          <div className="grid md:grid-cols-2 gap-10 mt-10">
+
+            {/* WHAT I DID */}
+            <div>
+              <h4 className="text-lg font-semibold text-cyan-400">
+                What I Did
+              </h4>
+              <ul className="mt-3 space-y-2 text-gray-300 text-sm leading-relaxed">
+                <li>• Provisioned AWS infrastructure using Terraform</li>
+                <li>• Containerized application using Docker</li>
+                <li>• Configured Nginx for web serving</li>
+                <li>• Built CI/CD pipeline with GitHub Actions</li>
+                <li>• Implemented monitoring with Prometheus & Grafana</li>
+                <li>• Managed DNS and domain via Cloudflare</li>
+              </ul>
+            </div>
+
+            {/* IMPACT */}
+            <div>
+              <h4 className="text-lg font-semibold text-cyan-400">
+                Impact
+              </h4>
+              <ul className="mt-3 space-y-2 text-gray-300 text-sm leading-relaxed">
+                <li>• Automated deployment workflow</li>
+                <li>• Improved system observability</li>
+                <li>• Created reproducible infrastructure</li>
+                <li>• Simulated real-world DevOps practices</li>
+              </ul>
+            </div>
+
+          </div>
+
+          {/* ARCHITECTURE */}
+          <div className="mt-12">
+            <h4 className="text-lg font-semibold text-cyan-400">
+              Architecture
+            </h4>
+
+            <div className="bg-black/60 p-5 rounded-lg mt-4 text-sm text-gray-300 font-mono leading-relaxed overflow-x-auto">
+              User → Cloudflare → EC2 → Docker → App <br />
+              <span className="text-gray-500">
+                └── Monitoring → Prometheus → Grafana
+              </span>
+            </div>
+          </div>
+
+          {/* LIVE APP (SUBTLE) */}
+          <div className="mt-10">
+            <a
+              href="https://iqbaalcloudporto.site"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm text-gray-400 hover:text-cyan-400 transition"
+            >
+              This portfolio is deployed using this architecture →
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
   )
 }
 

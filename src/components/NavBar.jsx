@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import {FaBars, FaTimes} from "react-icons/fa"
+import React, { useState } from 'react'
+import { FaBars, FaTimes } from "react-icons/fa"
 import { Link } from "react-scroll"
 
 const NavBar = () => {
@@ -7,68 +7,67 @@ const NavBar = () => {
   const [nav, setNav] = useState(false);
 
   const links = [
-    {
-      id: 1,
-      link: 'home',
-    },
-    {
-      id: 2,
-      link: 'about',
-    },
-    {
-      id: 3,
-      link: 'portfolio',
-    },
-    {
-      id: 4,
-      link: 'experience',
-    },
-    {
-      id: 5,
-      link: 'contact',
-    },
+    { id: 1, link: 'home' },
+    { id: 2, link: 'about' },
+    { id: 3, link: 'portfolio' },
+    { id: 4, link: 'experience' },
+    { id: 5, link: 'contact' },
   ];
 
   return (
-    <div className='flex justify-between items-center w-full 
-    h-20 px-4 text-white bg-blue-950 fixed'>
-      <div>
-        <a href="/" className='text-5xl font-signature ml-2 cursor-pointer'>Iqbaal</a>
-      </div>
-      <ul className='hidden md:flex'>
-        {links.map(({ id, link }) => (
-            <li
-              key={id}
-              className="px-4 cursor-pointer capitalize font-medium text-white hover:scale-105 hover:text-gray-500 duration-200 ease-in-out"
-            >
-              <Link to={link} smooth duration={300}>
+    <div className='fixed w-full h-20 z-50 bg-black/30 backdrop-blur-md border-b border-white/10 text-white'>
+
+      <div className='flex justify-between items-center max-w-5xl mx-auto px-4 h-full'>
+
+        {/* LOGO */}
+        <a href="/" className='text-2xl font-bold tracking-wide'>
+          Iqbaal
+        </a>
+
+        {/* DESKTOP MENU */}
+        <ul className='hidden md:flex gap-8'>
+          {links.map(({ id, link }) => (
+            <li key={id}>
+              <Link
+                to={link}
+                smooth
+                duration={300}
+                className="cursor-pointer capitalize text-gray-300 hover:text-cyan-400 transition duration-200"
+              >
                 {link}
               </Link>
             </li>
           ))}
-             
-        
-      </ul>
-      <div 
-        onClick={() => setNav(!nav)}
-        className='cursor-pointer pr-4 z-10 text-gray-500  md:hidden'>
-        {nav ? <FaTimes size={30}/> : <FaBars size={30}/>}
+        </ul>
+
+        {/* MOBILE ICON */}
+        <div
+          onClick={() => setNav(!nav)}
+          className='md:hidden cursor-pointer z-50 text-gray-300'
+        >
+          {nav ? <FaTimes size={24} /> : <FaBars size={24} />}
+        </div>
+
       </div>
 
-      {nav && (  
-        <ul className='flex flex-col justify-center items-center
-          absolute top-0 left-0 w-full h-screen bg-gradient-to-b from-black to-blue-800 text-blue-500'>
+      {/* MOBILE MENU */}
+      {nav && (
+        <ul className='absolute top-0 left-0 w-full h-screen bg-black flex flex-col justify-center items-center gap-8 text-lg'>
 
           {links.map(({ id, link }) => (
-              <li
-                key={id}
-                className="px-4 cursor-pointer capitalize py-6 text-4xl"
+            <li key={id}>
+              <Link
+                onClick={() => setNav(false)}
+                to={link}
+                smooth
+                duration={300}
+                className="capitalize text-gray-300 hover:text-cyan-400 transition"
               >
-                <Link onClick={() => setNav(!nav)} to={link} smooth duration={500}>
-                  {link}
-                </Link>
-              </li>
-            ))}       
+                {link}
+              </Link>
+            </li>
+          ))}
+
         </ul>
       )}
 
