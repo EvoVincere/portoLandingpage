@@ -6,7 +6,7 @@ import Social from './Social'
 
 const Home = () => {
   return (
-    <div name="home" className='min-h-screen w-full bg-gradient-to-b from-blue-950 via-blue-950 to-gray-800'>
+    <div name="home" className='pt-20 min-h-screen w-full bg-gradient-to-b from-blue-950 via-blue-950 to-gray-800'>
       
       <div className='max-w-screen-lg mx-auto flex flex-col-reverse md:flex-row items-center justify-center min-h-screen px-4 gap-10'>
 
