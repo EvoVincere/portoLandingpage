@@ -1,0 +1,58 @@
+version: '3'
+services:
+  app:
+    build: .
+    container_name: porto-app
+   # ports: - "80:80"
+    restart: unless-stopped
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-proxy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+    restart: unless-stopped
+    depends_on:
+      - app
+  prometheus:
+    image: prom/prometheus
+    volumes:
+      - /home/ubuntu/monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  node-exporter:
+    image: prom/node-exporter
+    container_name: node-exporter
+    restart: unless-stopped
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)'
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      # Mengaktifkan akses tanpa login
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      # Mengatur akses tanpa login hanya sebagai Viewer
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+      # Menghilangkan tombol login di halaman utama agar lebih rapi (Opsional)
+      - GF_AUTH_ANONYMOUS_HIDE_VERSION=true
+    volumes:
+      - grafana-data:/var/lib/grafana
+
+volumes:
+  grafana-data:
